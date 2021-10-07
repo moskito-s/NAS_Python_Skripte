@@ -6,8 +6,10 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21, GPIO.OUT)
 
-state = True
-
+GPIO.output(21,True)
+time.sleep(0.4)
+GPIO.output(21,False)
+time.sleep(0.4)
 
 
 obj_Disk_old = psutil.disk_usage('/media/nextCloudMainHDD')
