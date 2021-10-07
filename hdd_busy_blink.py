@@ -1,16 +1,9 @@
 import RPi.GPIO as GPIO
 import time
-import shutil
+import psutil
 
-total, used, free = shutil.disk_usage("/")
+hdd = psutil.disk_usage('/')
 
-print("Total: %d GiB" % (total // (2**30)))
-print("Used: %d GiB" % (used // (2**30)))
-print("Free: %d GiB" % (free // (2**30)))
-
-
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(21, GPIO.OUT)
-
-
+print ("Total: %d GiB" % hdd.total / (2**30))
+print ("Used: %d GiB" % hdd.used / (2**30))
+print ("Free: %d GiB" % hdd.free / (2**30))
