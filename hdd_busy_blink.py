@@ -20,6 +20,7 @@ obj_Disk_new = psutil.disk_usage('/media/nextCloudMainHDD')
 while True:
 
     obj_Disk_new = psutil.disk_usage('/media/nextCloudMainHDD')
+    print(obj_Disk_new)
 
     if obj_Disk_new.used != obj_Disk_old.used :
         GPIO.output(21,True)
