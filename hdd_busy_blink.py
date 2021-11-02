@@ -22,7 +22,7 @@ while True:
             
     time.sleep(0.5)
 
-    obj_Disk_new = psutil.disk_usage('/media/nextCloudMainHDD')
+    obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdata')
 
     if obj_Disk_new.used != obj_Disk_old.used :
         GPIO.output(21,True)
