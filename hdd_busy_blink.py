@@ -12,8 +12,8 @@ GPIO.output(21,False)
 time.sleep(0.4)
 
 
-obj_Disk_old = psutil.disk_usage('/media/nextCloudMainHDD')
-obj_Disk_new = psutil.disk_usage('/media/nextCloudMainHDD')
+obj_Disk_old = psutil.disk_usage('/media/USBdrive/ncdata')
+obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdata')
 
 
 # endless loop, on/off for 1 second
