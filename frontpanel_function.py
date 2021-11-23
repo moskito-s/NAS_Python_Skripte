@@ -47,8 +47,9 @@ def checkForHDDChange():
         time.sleep(0.4)
         GPIO.output(21,False)
         time.sleep(0.4)
+        obj_Disk_old = obj_Disk_new
 
-    obj_Disk_old = obj_Disk_new
+
 
 
 GPIO.output(20,True) #turn on main power light and pull up for switch
