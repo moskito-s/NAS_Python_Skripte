@@ -16,6 +16,7 @@ class RepeatTimer(Timer):
 
 
 def blinkTimerFunc():
+        global state
         GPIO.output(21,state)
         state = not state
         print("foo")
