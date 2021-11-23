@@ -8,6 +8,11 @@ GPIO.setup(21, GPIO.OUT)
 
 state = True
 
+class RepeatTimer(Timer):
+    def run(self):
+        while not self.finished.wait(self.interval):
+            self.function(*self.args, **self.kwargs)
+
 def blinkTimerFunc():
         GPIO.output(21,state)
         state = not state
@@ -15,14 +20,10 @@ def blinkTimerFunc():
 
 def main():
         blinkTimer = RepeatTimer(1, blinkTimerFunc)
-        
+
         while(True):
                 pass
 
 if __name__ == "__main__":
     main()
 
-class RepeatTimer(Timer):
-    def run(self):
-        while not self.finished.wait(self.interval):
-            self.function(*self.args, **self.kwargs)
