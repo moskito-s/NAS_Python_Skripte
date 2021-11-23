@@ -5,11 +5,15 @@ import psutil
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21, GPIO.OUT)
+GPIO.setup(20, GPIO.OUT)
+
 
 GPIO.output(21,True)
 time.sleep(0.4)
 GPIO.output(21,False)
 time.sleep(0.4)
+
+GPIO.output(20,True) #turn on main power light
 
 
 obj_Disk_old = psutil.disk_usage('/media/USBdrive/ncdata')
