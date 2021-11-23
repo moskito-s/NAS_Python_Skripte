@@ -41,6 +41,9 @@ def buttonPress(channel):
 def checkForHDDChange():
     global obj_Disk_new, obj_Disk_old
 
+    obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdata')
+
+
     if obj_Disk_new.used != obj_Disk_old.used :
         print("HDD changed")
         GPIO.output(21,True)
