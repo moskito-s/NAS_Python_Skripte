@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import threading as th
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -7,9 +8,21 @@ GPIO.setup(21, GPIO.OUT)
 
 state = True
 
-# endless loop, on/off for 1 second
-while True:
-        GPIO.output(21,True)
-        time.sleep(0.3)
-        GPIO.output(21,False)
-        time.sleep(0.4)
+def blinkTimerFunc():
+        GPIO.output(21,state)
+        state = not state
+
+
+def main():
+        blinkTimer = RepeatTimer(1, blinkTimerFunc)
+        
+        while(True):
+                pass
+
+if __name__ == "__main__":
+    main()
+
+class RepeatTimer(Timer):
+    def run(self):
+        while not self.finished.wait(self.interval):
+            self.function(*self.args, **self.kwargs)
