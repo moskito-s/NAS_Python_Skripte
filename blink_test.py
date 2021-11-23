@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-import threading as th
+from threading import Timer
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
