@@ -13,13 +13,14 @@ class RepeatTimer(Timer):
         while not self.finished.wait(self.interval):
             self.function(*self.args, **self.kwargs)
 
-blinkTimer = RepeatTimer(1, blinkTimerFunc)
 
 
 def blinkTimerFunc():
         GPIO.output(21,state)
         state = not state
         print("foo")
+
+blinkTimer = RepeatTimer(1, blinkTimerFunc)
 
 
 def main():
