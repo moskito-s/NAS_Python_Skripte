@@ -42,12 +42,12 @@ def checkForHDDChange():
     global obj_Disk_new, obj_Disk_old
 
     if obj_Disk_new.used != obj_Disk_old.used :
+        print("HDD changed")
         GPIO.output(21,True)
         time.sleep(0.4)
         GPIO.output(21,False)
         time.sleep(0.4)
 
-    print("HDD changed")
     obj_Disk_old = obj_Disk_new
 
 
