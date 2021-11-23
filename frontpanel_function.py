@@ -41,6 +41,11 @@ def buttonPress(channel):
 def checkForHDDChange():
     global obj_Disk_new, obj_Disk_old
 
+    GPIO.output(21,True)
+    time.sleep(0.4)
+    GPIO.output(21,False)
+    time.sleep(0.4)
+
     if obj_Disk_new.used != obj_Disk_old.used :
         GPIO.output(21,True)
         time.sleep(0.4)
@@ -62,7 +67,7 @@ def main():
     hddCheckTimer = RepeatTimer(1, checkForHDDChange)
     hddCheckTimer.start()
 
-    
+
     while(True):
         pass
 
