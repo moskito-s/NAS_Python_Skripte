@@ -2,13 +2,18 @@ import RPi.GPIO as GPIO
 import os
 import time
 import psutil
-import threading as th
+from threading import Timer
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21, GPIO.OUT)
 GPIO.setup(20, GPIO.OUT)
 GPIO.setup(26,GPIO.IN)
+
+class RepeatTimer(Timer):
+    def run(self):
+        while not self.finished.wait(self.interval):
+            self.function(*self.args, **self.kwargs)
 
 obj_Disk_old = psutil.disk_usage('/media/USBdrive/ncdata')
 obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdata')
@@ -34,6 +39,7 @@ def buttonPress(channel):
         os.system('sudo shutdown now') 
 
 def checkForHDDChange():
+    global obj_Disk_new, obj_Disk_old
 
     if obj_Disk_new.used != obj_Disk_old.used :
         GPIO.output(21,True)
@@ -53,6 +59,10 @@ GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonPress, bouncetime=500)
 
 def main():
     print("Frontpanel aktiv")
+    hddCheckTimer = RepeatTimer(1, checkForHDDChange)
+    hddCheckTimer.start()
+
+    
     while(True):
         pass
 
