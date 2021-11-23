@@ -16,12 +16,12 @@ class RepeatTimer(Timer):
 
 
 def blinkTimerFunc():
-        #GPIO.output(21,state)
-        #state = not state
+        GPIO.output(21,state)
+        state = not state
         print("foo")
 
 blinkTimer = RepeatTimer(1, blinkTimerFunc)
-
+blinkTimer.start()
 
 def main():
         while(True):
