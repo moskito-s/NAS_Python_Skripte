@@ -4,7 +4,7 @@ import psutil
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(21, GPIO.IN)
+GPIO.setup(26, GPIO.IN)
 
 def buttonPress(channel):
     global buttonStatus
