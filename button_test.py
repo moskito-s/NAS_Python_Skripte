@@ -21,8 +21,6 @@ def buttonPress(channel):
     elif 2 <= buttonTime < 4:         
         buttonStatus = 2        # 2= Long push
 
-    elif buttonTime >= 4:
-        buttonStatus = 3        # 3= really long push
 
     print(buttonStatus)
 
