@@ -27,7 +27,7 @@ def buttonPress(channel):
     print(buttonStatus)
 
 
-GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonPress, bouncetime=500)
+GPIO.add_event_detect(21, GPIO.FALLING, callback=buttonPress, bouncetime=500)
 
 def main():
     print("Button Check")
