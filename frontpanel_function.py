@@ -65,9 +65,12 @@ def checkForHDDChange():
 
     if obj_Disk_new_size != obj_Disk_old_size :
         print("HDD changed")
-        GPIO.output(pin_d3,True)
-        time.sleep(0.4)
-        GPIO.output(pin_d3,False)
+        for i in range(5):
+            GPIO.output(pin_d3,True)
+            time.sleep(0.1)
+            GPIO.output(pin_d3,False)
+            time.sleep(0.1)
+
         obj_Disk_old_size = obj_Disk_new_size
 
 
@@ -80,7 +83,7 @@ def main():
     global obj_Disk_new, obj_Disk_old, pin_d1, pin_d3, pin_d1
     print("Frontpanel aktiv")
     GPIO.output(pin_d1,True) #turn on main power light and pull up for switch
-    hddCheckTimer = RepeatTimer(0.8, checkForHDDChange)
+    hddCheckTimer = RepeatTimer(2, checkForHDDChange)
     hddCheckTimer.start()
 
 
