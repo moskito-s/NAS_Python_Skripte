@@ -7,8 +7,6 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(26, GPIO.IN)
 GPIO.setup(20, GPIO.OUT)
 
-GPIO.setup(26, GPIO.OUT)
-
 
 def buttonPress(channel):
     global buttonStatus
