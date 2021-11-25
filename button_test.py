@@ -4,8 +4,10 @@ import psutil
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(21, GPIO.IN)
+GPIO.setup(26, GPIO.IN)
 GPIO.setup(20, GPIO.OUT)
+
+GPIO.setup(26, GPIO.OUT)
 
 
 def buttonPress(channel):
@@ -27,7 +29,7 @@ def buttonPress(channel):
     print(buttonStatus)
 
 
-GPIO.add_event_detect(21, GPIO.FALLING, callback=buttonPress, bouncetime=500)
+GPIO.add_event_detect(26, GPIO.FALLING, callback=buttonPress, bouncetime=500)
 
 def main():
     print("Button Check")
