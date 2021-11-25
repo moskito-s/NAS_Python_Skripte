@@ -57,9 +57,9 @@ def checkForHDDChange():
 
 
     except Exception:
-        GPIO.output(pin_d3,False)
+        GPIO.output(pin_d1,False)
         time.sleep(0.2)
-        GPIO.output(pin_d3,True)
+        GPIO.output(pin_d1,True)
         print("ERROR: Nextcloud festplatte nicht gefunden")
 
 
