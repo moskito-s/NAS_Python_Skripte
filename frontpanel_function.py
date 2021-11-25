@@ -52,7 +52,7 @@ def checkForHDDChange():
 
     try:
 
-        obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdataa')
+        obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdata')
         obj_Disk_new_size = obj_Disk_new.used
 
 
