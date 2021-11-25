@@ -10,6 +10,9 @@ GPIO.setup(21, GPIO.OUT)
 GPIO.setup(20, GPIO.OUT)
 GPIO.setup(26,GPIO.IN)
 
+GPIO.output(21,True)
+
+
 class RepeatTimer(Timer):
     def run(self):
         while not self.finished.wait(self.interval):
