@@ -53,6 +53,8 @@ def checkForHDDChange():
     try:
 
         obj_Disk_new = psutil.disk_usage('/media/USBdrive/ncdataa')
+        obj_Disk_new_size = obj_Disk_new.used
+
 
     except Exception:
         GPIO.output(pin_d3,False)
@@ -60,7 +62,6 @@ def checkForHDDChange():
         GPIO.output(pin_d3,True)
         print("ERROR: Nextcloud festplatte nicht gefunden")
 
-    obj_Disk_new_size = obj_Disk_new.used
 
     if obj_Disk_new_size != obj_Disk_old_size :
         print("HDD changed")
