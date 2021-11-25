@@ -57,19 +57,20 @@ def checkForHDDChange():
 
 
     except Exception:
-        GPIO.output(pin_d1,False)
-        time.sleep(0.2)
-        GPIO.output(pin_d1,True)
-        print("ERROR: Nextcloud festplatte nicht gefunden")
-
-
-    if obj_Disk_new_size != obj_Disk_old_size :
-        print("HDD changed")
         for i in range(5):
             GPIO.output(pin_d3,True)
             time.sleep(0.1)
             GPIO.output(pin_d3,False)
             time.sleep(0.1)
+        print("ERROR: Nextcloud festplatte nicht gefunden")
+
+
+    if obj_Disk_new_size != obj_Disk_old_size :
+        print("HDD changed")
+        GPIO.output(pin_d3,True)
+        time.sleep(0.3)
+        GPIO.output(pin_d3,False)
+        time.sleep(0.3)
 
         obj_Disk_old_size = obj_Disk_new_size
 
