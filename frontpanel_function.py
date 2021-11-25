@@ -63,16 +63,13 @@ def checkForHDDChange():
 
 
 
-GPIO.output(pin_d1,True) #turn on main power light and pull up for switch
 GPIO.add_event_detect(pin_sw2, GPIO.FALLING, callback=buttonPress, bouncetime=500)
-
-
-
 
 
 def main():
     global obj_Disk_new, obj_Disk_old, pin_d1, pin_d3, pin_d1
     print("Frontpanel aktiv")
+    GPIO.output(pin_d1,True) #turn on main power light and pull up for switch
     hddCheckTimer = RepeatTimer(1, checkForHDDChange)
     hddCheckTimer.start()
 
